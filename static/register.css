@@ -222,7 +222,7 @@ a:hover {
     margin: auto;
     background: #fff;
     border-radius: 5px;
-    height: 430px;
+    height: 460px;
     box-shadow: 0 3px 0 0 #cee3ea;
     box-sizing: border-box;
 }
@@ -258,7 +258,7 @@ a:hover {
     border-color: #464646
 }
 
-#user_password {
+.user_password {
     background: #fff;
     border: 1px solid #cee3ea;
     border-radius: 5px;

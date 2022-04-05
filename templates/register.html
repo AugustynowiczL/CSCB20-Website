@@ -31,7 +31,8 @@
                 <div class="login-form">
                     <form action = "{{ url_for('register') }}", method = "post">
                         <input type="text" name="user_login" id="user_login" placeholder="Enter a username">
-                        <input type="password" name="user_password" aria-label="Password" id="user_password" placeholder="Enter a password">
+                        <input type="password" name="user_password" aria-label="Password" class="user_password" placeholder="Enter a password">
+                        <input type="password" name="user_confirm_password" aria-label="Password" class="user_password" placeholder="Confirm a password">
                         <select id="select-user" name="select_user">
                             <option value="Student">Student</option>
                             <option value="Teacher">Teacher</option>

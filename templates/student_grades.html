@@ -63,6 +63,36 @@
         </div>
         </div>
     </div>
+    <h2>My Remarks</h2>
+    <hr>
+    <div class = "table-container">
+        <div class = 'table'><div class = "table-row">
+             <div class = 'table-entry-medium'>
+                 <b>Username</b>
+             </div>
+             <div class = 'table-entry-medium'>
+                 <b>Type</b>
+             </div>
+             <div class = 'table-entry-medium'>
+                 <b>Reason</b>
+             </div>
+         </div>
+         {% for Remark in r %}
+         <div class = "table-row">
+             <div class = 'table-entry-medium'>
+                 {{Remark.username}}
+             </div>
+             <div class = 'table-entry-medium'>
+                 {{Remark.type}}
+             </div>
+             <div class = 'table-entry-medium'>
+                 {{Remark.reason}}
+             </div>
+         </div>
+         {% endfor %}
+     </div>
+     </div>
+ </div>
     <h2>Request Remark</h2>
     <hr>
     <form id="feedback-form" action="{{ url_for('student_grades') }}", method="post" >
@@ -73,6 +103,22 @@
         <textarea type="textarea" id = "feedback-area"name="fname" rows="8" cols="50" placeholder="Please provide a reason for the remark request"></textarea>
         <input type="submit" id="submit" value="Submit">
     </form>
+    {% with messages = get_flashed_messages(with_categories = true) %}
+        {% if messages %}
+            <ul class=flashes>
+                {% for category, message in messages %}
+                <li class="{{ category }}"><strong>Error: </strong>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
     </div>
+    <footer>
+        <div id="footer-container">
+            <div id="footer-element"><p>&copy</p></div>
+            <div id="footer-element"><a href="https://web.cs.toronto.edu/people/faculty-directory" target="_blank">CS Faculty Link</a></div>
+            <div><p>Designed by Lukas and Youngjae</p></div>
+        </div>
+    </footer>
     </body>
 </html>
