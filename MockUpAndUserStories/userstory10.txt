@@ -1,0 +1,3 @@
+As a student user, the student must be able to be redirected to markus links
+for assignment submission after clicking on "assignments" button/link 
+and looking at the table provided.

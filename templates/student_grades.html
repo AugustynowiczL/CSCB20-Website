@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Grades</title>
+        <link rel="stylesheet" href="../static/student_grades.css">
+    </head>
+    <body>
+        <header>
+            <div id="nav">
+                <a href="{{ url_for ('index') }}">Home</a>
+                <a href="{{ url_for ('courseteam') }}">Course Team</a>
+                <a href="{{ url_for ('calendar') }}">Calendar</a>
+                <a href="{{ url_for ('news') }}">New News</a>
+                <a href="https://piazza.com" target="_blank">Discussion Board</a>
+                {% if session['type'] == 'Student' %}
+                <a href="{{ url_for ('student_grades') }} ">Grades</a>
+                <a href="{{ url_for ('anonfeedback') }}">Anon Feedback</a>
+                {% endif %}
+                {% if session['type'] == 'Teacher' %}
+                <a href="{{ url_for ('teacher_grades') }} ">Grades</a>
+                <a href="{{ url_for ('teacher_feedback') }} ">Feedback</a>
+                {% endif %}
+                <a href="{{ url_for ('lectures') }}">Lectures</a>
+                <a href="{{ url_for ('labs') }}">Labs</a>
+                <a href="{{ url_for ('assignments') }}">Assignments</a>
+                <a href="{{ url_for ('tests') }}">Tests</a>
+                <a href="{{ url_for ('resources') }}">Resources</a>
+                <a href="{{ url_for ('logout') }} ">Logout</a>
+                </div>
+        </header>
+        <div id="page-title">
+            <h1>Grades</h1>
+        </div>
+        <h2>My Grades</h2>
+        <hr>
+        <div class = "table-container">
+           <div class = 'table'><div class = "table-row">
+                <div class = 'table-entry-medium'>
+                    <b>Midterm</b>
+                </div>
+                <div class = 'table-entry-medium'>
+                    <b>Assignment</b>
+                </div>
+                <div class = 'table-entry-medium'>
+                    <b>Average</b>
+                </div>
+            </div>
+            {% for Student in q %}
+            <div class = "table-row">
+                <div class = 'table-entry-medium'>
+                    {{Student.midterm}}
+                </div>
+                <div class = 'table-entry-medium'>
+                    {{Student.assignment}}
+                </div>
+                <div class = 'table-entry-medium'>
+                    {{Student.average}}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        </div>
+    </div>
+    <h2>Request Remark</h2>
+    <hr>
+    <form id="feedback-form" action="{{ url_for('student_grades') }}", method="post" >
+        <select id="select-assignment" name="select-assignment">
+            <option>Midterm</option>
+            <option>Assignment</option>
+        </select>
+        <textarea type="textarea" id = "feedback-area"name="fname" rows="8" cols="50" placeholder="Please provide a reason for the remark request"></textarea>
+        <input type="submit" id="submit" value="Submit">
+    </form>
+    </div>
+    </body>
+</html>

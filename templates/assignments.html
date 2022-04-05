@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Lectures</title>
+    <link rel="stylesheet" href="../static/assignments.css">
+</head>
+<body>
+    <header>
+        <div id="nav">
+            <a href="{{ url_for ('index') }}">Home</a>
+            <a href="{{ url_for ('courseteam') }}">Course Team</a>
+            <a href="{{ url_for ('calendar') }}">Calendar</a>
+            <a href="{{ url_for ('news') }}">New News</a>
+            <a href="https://piazza.com" target="_blank">Discussion Board</a>
+            {% if session['type'] == 'Student' %}
+            <a href="{{ url_for ('student_grades') }} ">Grades</a>
+            <a href="{{ url_for ('anonfeedback') }}">Anon Feedback</a>
+            {% endif %}
+            {% if session['type'] == 'Teacher' %}
+            <a href="{{ url_for ('teacher_grades') }} ">Grades</a>
+            <a href="{{ url_for ('teacher_feedback') }} ">Feedback</a>
+            {% endif %}
+            <a href="{{ url_for ('lectures') }}">Lectures</a>
+            <a href="{{ url_for ('labs') }}">Labs</a>
+            <a href="{{ url_for ('assignments') }}">Assignments</a>
+            <a href="{{ url_for ('tests') }}">Tests</a>
+            <a href="{{ url_for ('resources') }}">Resources</a>
+            <a href="{{ url_for ('logout') }} ">Logout</a>
+            </div>
+    </header>
+    <div id="page-title">
+        <h1>Assignments</h1>
+    </div>
+    <div>
+        <h2>Overview</h2>
+        <hr>
+        <p>Here are the assignment and exercise topics, weights, and due dates. I will be posting the exercise and assignment handouts here. 
+            All exercises and assignments will be submitted on <a href="https://markus.utsc.utoronto.ca/cscb20w17/en">MarkUs.</a></p>
+        <h2>Assignments</h2>
+        <hr>
+        <div class="table-container">
+            <div class="table">
+                <div class="table-row">
+                    <div class="table-header-entry-short"><b>#</b></div>
+                    <div class="table-header-entry-medium"><b>Topic(Tentative)</b></div>
+                    <div class="table-header-entry-short"><b>Weight</b></div>
+                    <div class="table-header-entry-long"><b>Due Date</b></div>
+                    <div class="table-header-entry-medium"><b>Solution</b></div>
+                </div>
+                <div class="table-row">
+                    <div class="table-entry-short">1</div>
+                    <div class="table-entry-medium">Relational Algebra and MySQL</div>
+                    <div class="table-entry-short">15%</div>
+                    <div class="table-entry-long">Part 1. Wednesday Feb. 1, 11.59pm, Submit to <a href="https://markus.utsc.utoronto.ca/cscb20w17/?locale=en">MarkUs</a>
+                        UPDATED Part 2 and 3. For 5% bonus Saturday Feb. 11, 11.59pm or Friday Feb. 17, 11.59 Submit to <a href="https://markus.utsc.utoronto.ca/cscb20w17/?locale=en">MarkUs</a> You can download a dumpfile for IMDB_SMALL <a href="https://www.utsc.utoronto.ca/~bretscher/b20/assignments/IMDB_SMALL.sql">here</a>.
+                        To use it type <small>mysql -u utorid -p < IMDB_SMALL.sql</small></div>
+                    <div class="table-entry-medium"><a href="/static/blank.pdf">Solution Part1</a></div>
+                </div>
+                <div class="table-row">
+                    <div class="table-entry-short">2</div>
+                    <div class="table-entry-medium">HTML, CSS, PHP</div>
+                    <div class="table-entry-short">15%</div>
+                    <div class="table-entry-long">Part 1: Worth 50% Friday March. 10, 11.59pm, Submit to <a href="https://markus.utsc.utoronto.ca/cscb20w17/?locale=en">MarkUs</a>
+                        <br>Part 2: Worth 50% Friday March. 19, 11.59pm, Submit to <a href="https://markus.utsc.utoronto.ca/cscb20w17/?locale=en">MarkUs</a>--></div>
+                    <div class="table-entry-medium">None</div>
+                </div>
+                <div class="table-row">
+                    <div class="table-entry-short">3</div>
+                    <div class="table-entry-medium">Web Application and Database</div>
+                    <div class="table-entry-short">15%</div>
+                    <div class="table-entry-long">Friday March 31, 11.59pm</div>
+                    <div class="table-entry-medium">None</div>
+                </div>
+            </div>
+        </div>
+        <h2>FAQ - Assignment 1</h2>
+        <hr>
+        <p><b>Q. If the mysql portion asks for a director or actor without specifying which attributes, what should I return?</b></p>
+        <p>A. Return the first name, last name.</p>
+    </div>
+    <footer>
+        <div id="footer-container">
+            <div id="footer-element"><p>&copy</p></div>
+            <div id="footer-element"><a href="https://web.cs.toronto.edu/people/faculty-directory" target="_blank">CS Faculty Link</a></div>
+            <div><p>Designed by Lukas and Youngjae</p></div>
+        </div>
+    </footer>
+</body>
+</html>

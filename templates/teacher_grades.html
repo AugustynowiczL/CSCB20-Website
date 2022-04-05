@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Grades</title>
+        <link rel="stylesheet" href="../static/teacher_grades.css">
+    </head>
+    <body>
+        <header>
+            <div id="nav">
+                <a href="{{ url_for ('index') }}">Home</a>
+                <a href="{{ url_for ('courseteam') }}">Course Team</a>
+                <a href="{{ url_for ('calendar') }}">Calendar</a>
+                <a href="{{ url_for ('news') }}">New News</a>
+                <a href="https://piazza.com" target="_blank">Discussion Board</a>
+                {% if session['type'] == 'Student' %}
+                <a href="{{ url_for ('student_grades') }} ">Grades</a>
+                <a href="{{ url_for ('anonfeedback') }}">Anon Feedback</a>
+                {% endif %}
+                {% if session['type'] == 'Teacher' %}
+                <a href="{{ url_for ('teacher_grades') }} ">Grades</a>
+                <a href="{{ url_for ('teacher_feedback') }} ">Feedback</a>
+                {% endif %}
+                <a href="{{ url_for ('lectures') }}">Lectures</a>
+                <a href="{{ url_for ('labs') }}">Labs</a>
+                <a href="{{ url_for ('assignments') }}">Assignments</a>
+                <a href="{{ url_for ('tests') }}">Tests</a>
+                <a href="{{ url_for ('resources') }}">Resources</a>
+                <a href="{{ url_for ('logout') }} ">Logout</a>
+            </div>
+        </header>
+        <div id="page-title">
+            <h1>Student Grades</h1>
+        </div>
+        <h2>Student Grades</h2>
+        <hr>
+        <div class = "table-container">
+           <div class = 'table'>
+                <div class = "table-row">
+                    <div class = 'table-entry-medium'>
+                        <b>Username</b>
+                    </div>
+                    <div class = 'table-entry-medium'>
+                        <b>Midterm</b>
+                    </div>
+                    <div class = 'table-entry-medium'>
+                        <b>Assignment</b>
+                    </div>
+                    <div class = 'table-entry-medium'>
+                        <b>Average</b>
+                    </div>
+                </div>
+                {% for Student in q %}
+                <div class = "table-row">
+                    <div class = 'table-entry-medium'>
+                        {{Student.username}}
+                    </div>
+                    <div class = 'table-entry-medium'>
+                        {{Student.midterm}}
+                    </div>
+                    <div class = 'table-entry-medium'>
+                        {{Student.assignment}}
+                    </div>
+                    <div class = 'table-entry-medium'>
+                        {{Student.average}}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div>
+            <h2>Remark Requests</h2>
+            <div class = "table-container">
+                <div class = 'table'>
+                     <div class = "table-row">
+                         <div class = 'table-entry-medium'>
+                             <b>Username</b>
+                         </div>
+                         <div class = 'table-entry-medium'>
+                             <b>Type</b>
+                         </div>
+                         <div class ='table-entry-medium'>
+                             <b>Reason</b>
+                         </div>
+                     </div>
+                     {% for remark in remarks %}
+                     <div class = "table-row">
+                         <div class = 'table-entry-medium'>
+                             {{remark.username}}
+                         </div>
+                         <div class = 'table-entry-medium'>
+                             {{remark.type}}
+                         </div>
+                         <div class = 'table-entry-medium'>
+                            {{remark.reason}}
+                        </div>
+                     </div>
+                     {% endfor %}
+                 </div>
+             </div>
+        </div>
+        <div>
+        <h2>Edit Grades</h2>
+        <hr>
+        <br>
+        <form id="feedback-form" action="{{ url_for('teacher_grades') }}", method="post" >
+            <select id="select-student" name="select-student">
+                {% for Student in q %}
+                <option>{{Student.username}}</option>
+                {% endfor %}
+            </select>
+            <select id="select-type" name="select-type">
+                <option value="Midterm">Midterm</option>
+                <option value="Assignment">Assignment</option>
+            </select>
+            <input type="text" id = "grade-input" name="grade-input" placeholder="Input grade here">
+            <input type="submit" id="submit" value="Submit">
+        </form>
+        </div>
+    </body>
+</html>

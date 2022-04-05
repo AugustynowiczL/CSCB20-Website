@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Feedback</title>
+        <link rel="stylesheet" href="../static/teacher_feedback.css">
+    </head>
+    <body>
+        <header>
+            <div id="nav">
+                <a href="{{ url_for ('index') }}">Home</a>
+                <a href="{{ url_for ('courseteam') }}">Course Team</a>
+                <a href="{{ url_for ('calendar') }}">Calendar</a>
+                <a href="{{ url_for ('news') }}">New News</a>
+                <a href="https://piazza.com" target="_blank">Discussion Board</a>
+                {% if session['type'] == 'Student' %}
+                <a href="{{ url_for ('student_grades') }} ">Grades</a>
+                <a href="{{ url_for ('anonfeedback') }}">Anon Feedback</a>
+                {% endif %}
+                {% if session['type'] == 'Teacher' %}
+                <a href="{{ url_for ('teacher_grades') }} ">Grades</a>
+                <a href="{{ url_for ('teacher_feedback') }} ">Feedback</a>
+                {% endif %}
+                <a href="{{ url_for ('lectures') }}">Lectures</a>
+                <a href="{{ url_for ('labs') }}">Labs</a>
+                <a href="{{ url_for ('assignments') }}">Assignments</a>
+                <a href="{{ url_for ('tests') }}">Tests</a>
+                <a href="{{ url_for ('resources') }}">Resources</a>
+                <a href="{{ url_for ('logout') }} ">Logout</a>
+                </div>
+        </header>
+        <div id="page-title">
+            <h1>Feedback</h1>
+        </div>
+
+        <h2>Feedback</h2>
+        <hr>
+        <div class = "table-container">
+           <div class = 'table'><div class = "table-row">
+                <div class = 'table-entry-medium'>
+                    <b>Feedback</b>
+                </div>
+                <div class = 'table-entry-medium'>
+                    <b>Date Posted</b>
+                </div>
+            </div>
+            {% for Student in q %}
+            <div class = "table-row">
+                <div class = 'table-entry-medium'>
+                    {{Student.feedback}}
+                </div>
+                <div class = 'table-entry-medium'>
+                    {{Student.date_posted}}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+            
+        </div>
+    
+    </body>
+</html>

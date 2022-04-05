@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Lectures</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='login.css') }}">
+    </head>
+    <body>
+        <header>
+            <div id="nav">
+                <a href="{{ url_for('login') }}">Login</a>
+                <a href="{{ url_for('register') }}">Register</a>
+            </div>
+        </header>
+
+        <body>
+            {% with messages = get_flashed_messages(with_categories = true) %}
+            {% if messages %}
+            <ul class=flashes>
+                {% for category, message in messages %}
+                <li class="{{ category }}"><strong>Error: </strong>{{ message }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+            {% endwith %}
+            <div class="login-container">
+                <h1 class="login-greet">CSCB20 Winter 2022: Introduction to Database and Web Application</h1>
+                <div class="login-form">
+                    <form action="{{ url_for('login') }}", method="post">
+                    <input type="text" name="user_login" id="user_login" placeholder="User Name">
+                    <input type="password" name="user_password" aria-label="Password" id="user_password" placeholder="Password">
+                    <input type="submit" name="submit" id="submit_button" value="Log in">
+                </form>
+                </div>
+            </div>
+        </body>
+</html>

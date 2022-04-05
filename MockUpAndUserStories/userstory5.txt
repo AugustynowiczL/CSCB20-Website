@@ -1,0 +1,3 @@
+As a student user, the student must be able to see all resources
+for SQL, Piazza, and how to connect to Mathlabs
+when clicking on the "resources" button/link.

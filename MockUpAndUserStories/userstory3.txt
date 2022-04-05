@@ -1,0 +1,3 @@
+As a student user, the student must be able to see all the assignments,
+their weight, due date and solutions, when clicking the "assignments"
+button/link.

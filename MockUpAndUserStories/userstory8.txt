@@ -1,0 +1,2 @@
+As a student user, the student must be able to see an imbedded google
+course calendar after clicking on "calendar" link/button

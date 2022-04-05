@@ -1,0 +1,2 @@
+As a student user, the student must be able to be redirected to piazza dicussion
+website after clicking on "dicussion board" button/link.

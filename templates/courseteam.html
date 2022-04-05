@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Lectures</title>
+    <link rel="stylesheet" href="../static/courseteam.css">
+</head>
+<body>
+    <header>
+        <div id="nav">
+            <a href="{{ url_for ('index') }}">Home</a>
+            <a href="{{ url_for ('courseteam') }}">Course Team</a>
+            <a href="{{ url_for ('calendar') }}">Calendar</a>
+            <a href="{{ url_for ('news') }}">New News</a>
+            <a href="https://piazza.com" target="_blank">Discussion Board</a>
+            {% if session['type'] == 'Student' %}
+            <a href="{{ url_for ('student_grades') }} ">Grades</a>
+            <a href="{{ url_for ('anonfeedback') }}">Anon Feedback</a>
+            {% endif %}
+            {% if session['type'] == 'Teacher' %}
+            <a href="{{ url_for ('teacher_grades') }} ">Grades</a>
+            <a href="{{ url_for ('teacher_feedback') }} ">Feedback</a>
+            {% endif %}
+            <a href="{{ url_for ('lectures') }}">Lectures</a>
+            <a href="{{ url_for ('labs') }}">Labs</a>
+            <a href="{{ url_for ('assignments') }}">Assignments</a>
+            <a href="{{ url_for ('tests') }}">Tests</a>
+            <a href="{{ url_for ('resources') }}">Resources</a>
+            <a href="{{ url_for ('logout') }} ">Logout</a>
+            </div>
+    </header>
+    <div id="page-title">
+        <h1>Course Team</h1>
+    </div>
+    <div>
+        <h2>Say hello to our TA's</h2>
+        <hr>
+        <div id="courseteam-container">
+            <figure>
+                <img class="picture" src="https://image.made-in-china.com/2f0j00ZcjRKLbYwwkA/Museum-Collection-Celebrities-Life-Size-Wax-Lookalike-for-Bill-Gates.jpg" alt="Anna Bretscher"></img>
+                <figcaption>Gill Bates</figcaption>
+            </figure>
+            <figure>
+                <img class="picture" src="https://imgk.timesnownews.com/story/MUSK_2.png?tr=w-1200,h-900" alt="Anna Bretscher"></img>
+                <figcaption>Mlon Eusk</figcaption>
+            </figure>
+            <figure>
+                <img class="picture" src="https://mirrorimages.co/wp-content/uploads/2017/03/chris-hudgnis10361-219503091724.jpg" alt="Anna Bretscher"></img>
+                <figcaption>Zark Muckerberg</figcaption>
+            </figure>
+        </div>
+    </div>
+    <footer>
+        <div id="footer-container">
+            <div id="footer-element"><p>&copy</p></div>
+            <div id="footer-element"><a href="https://web.cs.toronto.edu/people/faculty-directory" target="_blank">CS Faculty Link</a></div>
+            <div><p>Designed by Lukas and Youngjae</p></div>
+        </div>
+    </footer>
+</body>
+</html>

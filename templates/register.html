@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en" dir="ltr">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Lectures</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='register.css') }}">
+    </head>
+    <body>
+        <header>
+            <div id="nav">
+                <a href="{{ url_for('login') }}">Login</a>
+                <a href="{{ url_for('register') }}">Register</a>
+            </div>
+        </header>
+
+        <body>
+
+            {% with messages = get_flashed_messages(with_categories = true) %}
+            {% if messages %}
+            <ul class=flashes>
+                {% for category, message in messages %}
+                <li class="{{ category }}"><strong>Error: </strong>{{ message }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+            {% endwith %}
+
+            <div class="login-container">
+                <h1 class="login-greet">CSCB20 Winter 2022: Introduction to Database and Web Application</h1>
+                <div class="login-form">
+                    <form action = "{{ url_for('register') }}", method = "post">
+                        <input type="text" name="user_login" id="user_login" placeholder="Enter a username">
+                        <input type="password" name="user_password" aria-label="Password" id="user_password" placeholder="Enter a password">
+                        <select id="select-user" name="select_user">
+                            <option value="Student">Student</option>
+                            <option value="Teacher">Teacher</option>
+                        </select>
+                        <input type="submit" name="submit" id="submit_button" value="Register Account">
+                    </form>
+                </div>
+            </div>
+        </body>
+</html>

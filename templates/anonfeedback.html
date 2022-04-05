@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Lectures</title>
+    <link rel="stylesheet" href="../static/anonfeedback.css">
+</head>
+<body>
+    <header>
+        <div id="nav">
+            <a href="{{ url_for ('index') }}">Home</a>
+            <a href="{{ url_for ('courseteam') }}">Course Team</a>
+            <a href="{{ url_for ('calendar') }}">Calendar</a>
+            <a href="{{ url_for ('news') }}">New News</a>
+            <a href="https://piazza.com" target="_blank">Discussion Board</a>
+            {% if session['type'] == 'Student' %}
+            <a href="{{ url_for ('student_grades') }} ">Grades</a>
+            <a href="{{ url_for ('anonfeedback') }}">Anon Feedback</a>
+            {% endif %}
+            {% if session['type'] == 'Teacher' %}
+            <a href="{{ url_for ('teacher_grades') }} ">Grades</a>
+            <a href="{{ url_for ('teacher_feedback') }} ">Feedback</a>
+            {% endif %}
+            <a href="{{ url_for ('lectures') }}">Lectures</a>
+            <a href="{{ url_for ('labs') }}">Labs</a>
+            <a href="{{ url_for ('assignments') }}">Assignments</a>
+            <a href="{{ url_for ('tests') }}">Tests</a>
+            <a href="{{ url_for ('resources') }}">Resources</a>
+            <a href="{{ url_for ('logout') }} ">Logout</a>
+        </div>
+    </header>
+    <div id="page-title">
+        <h1>Anon Feedback</h1>
+    </div>
+    <div>
+        <h2>Feedback Page</h2>
+        <hr>
+        <p>Please feel free to submit any anonymous feedback that you may have!</p>
+        <form id="feedback-form" action="{{ url_for('anonfeedback') }}", method="post" >
+            <select id="select-teacher" name="select-teacher">
+                {% for teacher in teachers %}
+                <option value={{teacher}}>{{teacher}}</option>
+                {% endfor %}
+            </select>
+            <textarea type="textarea" id = "feedback-area"name="fname" rows="8" cols="50" placeholder="Please provide feedback in this box"></textarea>
+            <input type="submit" id="submit" value="Submit">
+        </form>
+        {% with messages = get_flashed_messages(with_categories = true) %}
+            {% if messages %}
+            <ul class=flashes>
+                {% for category, message in messages %}
+                <li class="{{ category }}"><strong>Error: </strong>{{ message }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+            {% endwith %}
+    </div>
+    <footer>
+        <div id="footer-container">
+            <div id="footer-element"><p>&copy</p></div>
+            <div id="footer-element"><a href="https://web.cs.toronto.edu/people/faculty-directory" target="_blank">CS Faculty Link</a></div>
+            <div><p>Designed by Lukas and Youngjae</p></div>
+        </div>
+    </footer>
+</body>
+</html>

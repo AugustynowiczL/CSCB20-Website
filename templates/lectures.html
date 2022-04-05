@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Lectures</title>
+        <link rel="stylesheet" href="../static/lectures.css">
+    </head>
+    <body>
+        <header>
+            <div id="nav">
+                <a href="{{ url_for ('index') }}">Home</a>
+                <a href="{{ url_for ('courseteam') }}">Course Team</a>
+                <a href="{{ url_for ('calendar') }}">Calendar</a>
+                <a href="{{ url_for ('news') }}">New News</a>
+                <a href="https://piazza.com" target="_blank">Discussion Board</a>
+                {% if session['type'] == 'Student' %}
+                <a href="{{ url_for ('student_grades') }} ">Grades</a>
+                <a href="{{ url_for ('anonfeedback') }}">Anon Feedback</a>
+                {% endif %}
+                {% if session['type'] == 'Teacher' %}
+                <a href="{{ url_for ('teacher_grades') }} ">Grades</a>
+                <a href="{{ url_for ('teacher_feedback') }} ">Feedback</a>
+                {% endif %}
+                <a href="{{ url_for ('lectures') }}">Lectures</a>
+                <a href="{{ url_for ('labs') }}">Labs</a>
+                <a href="{{ url_for ('assignments') }}">Assignments</a>
+                <a href="{{ url_for ('tests') }}">Tests</a>
+                <a href="{{ url_for ('resources') }}">Resources</a>
+                <a href="{{ url_for ('logout') }} ">Logout</a>
+                </div>
+        </header>
+        <div id="page-title">
+            <h1>Lectures</h1>
+        </div>
+
+        <div>
+            <h2>Lecture Schedule</h2>
+            <hr>
+            <p>Please print and bring these notes/worksheets to class</p>
+        </div>
+        <div class="table-container">
+            <div class="table">
+                <div class="table-row">
+                    <div class="table-header-entry-short"><b>Week</b></div>
+                    <div class="table-header-entry-medium"><b>Topic</b></div>
+                    <div class="table-header-entry-medium"><b>Reading</b></div>
+                    <div class="table-header-entry-medium"><b>Lecture Material</b></div>
+                    <div class="table-header-entry-medium"><b>In Class</b></div>
+                </div>
+                <div class="table-row">
+                    <div class="table-entry-short">1</div>
+                    <div class="table-entry-medium">Introduction, Databases background</div>
+                    <div class="table-entry-medium">None</div>
+                    <div class="table-entry-medium"><a href="/static/blank.pdf">Power Point</a> <a href="/static/blank.pdf">Power Point Handout</a></a></div>
+                    <div class="table-entry-medium">None</div>
+                </div>
+                <div class="table-row">
+                    <div class="table-entry-short">3</div>
+                    <div class="table-entry-medium">Schema Diagrams, Relational Algebra</div>
+                    <div class="table-entry-medium">None</div>
+                    <div class="table-entry-medium"><a href="/static/blank.pdf">Power Point Worksheet</a> <a href="/static/blank.pdf">Worksheet Solutions</a></div>
+                    <div class="table-entry-medium">None</div>
+                </div>
+                <div class="table-row">
+                    <div class="table-entry-short">4</div>
+                    <div class="table-entry-medium">SQL and MySQL</div>
+                    <div class="table-entry-medium">None</div>
+                    <div class="table-entry-medium"><a href="/static/blank.pdf">Power Point PDF</a>
+                                                    <a href="/static/blank.pdf">Power Point Printable PDF</a>
+                                                    <a href="/static/blank.pdf">MySQL Worksheet</a></div>
+                    <div class="table-entry-medium"><a href="/static/blank.pdf">In Class MySQL</a></div>
+                </div>
+                <div class="table-row">
+                    <div class="table-entry-short">5</div>
+                    <div class="table-entry-medium">MySQL Queries, Creating and Editing Tables</div>
+                    <div class="table-entry-medium">None</div>
+                    <div class="table-entry-medium"><a href="/static/blank.pdf">Power Point</a>
+                                                    <a href="/static/blank.pdf">Printable Power Point</a>
+                                                    <a href="/static/blank.pdf">More MySQL Worksheet <font color="red">Solutions</font></a></div>
+                    <div class="table-entry-medium"><a href="/static/blank.pdf">In Class MySQL</a></div>
+                </div>
+                <div class="table-row">
+                    <div class="table-entry-short">6</div>
+                    <div class="table-entry-medium">MySQL Outer Joins, Views, NULL, string functions, HTML</div>
+                    <div class="table-entry-medium">None</div>
+                    <div class="table-entry-medium"><a href="/static/blank.pdf">Power Point</a>
+                                                    <a href="/static/blank.pdf">HTML Power Point</a>
+                                                    <a href="/static/blank.pdf">MySQL Worksheet <font color="red">Solutions</font></a></div>
+                    <div class="table-entry-medium">None</div>
+                </div>
+                <div class="table-row">
+                    <div class="table-entry-short">7</div>
+                    <div class="table-entry-medium">HTML, CSS</div>
+                    <div class="table-entry-medium">None</div>
+                    <div class="table-entry-medium"><a href="/static/blank.pdf">CSS Power Point</a></div>
+                    <div class="table-entry-medium">None</div>
+                </div>
+                <div class="table-row">
+                    <div class="table-entry-short">8</div>
+                    <div class="table-entry-medium">PHP</div>
+                    <div class="table-entry-medium">None</div>
+                    <div class="table-entry-medium"><a href="/static/blank.pdf">Power Point</a></div>
+                    <div class="table-entry-medium">None</div>
+                </div>
+                <div class="table-row">
+                    <div class="table-entry-short">9</div>
+                    <div class="table-entry-medium">PHP and SQL</div>
+                    <div class="table-entry-medium">None</div>
+                    <div class="table-entry-medium"><a href="/static/blank.pdf">Power Point</a></div>
+                    <div class="table-entry-medium">Empty starter file: <a href="/static/blank.pdf">query.php</a>
+                         To look at the txt for this file, download this <a href="/static/blank.pdf">php_query.txt</a></div>
+                </div>
+                <div class="table-row">
+                    <div class="table-entry-short">10</div>
+                    <div class="table-entry-medium">JavaScript and jQuery</div>
+                    <div class="table-entry-medium">None</div>
+                    <div class="table-entry-medium"><a href="/static/blank.pdf">jQuery Power Point</a></div>
+                    <div class="table-entry-medium">None</div>
+                </div>
+                <div class="table-row">
+                    <div class="table-entry-short">11</div>
+                    <div class="table-entry-medium">jQuery, AJAX, JSON</div>
+                    <div class="table-entry-medium">None</div>
+                    <div class="table-entry-medium"><a href="/static/blank.pdf">Power Point</a>
+                                                    <a href="/static/blank.pdf">Printable Power Point</a></div>
+                    <div class="table-entry-medium">None</div>
+                </div>
+                <div class="table-row">
+                    <div class="table-entry-short">12</div>
+                    <div class="table-entry-medium">Last Year's final</div>
+                    <div class="table-entry-medium">None</div>
+                    <div class="table-entry-medium"><a href="/static/blank.pdf">W16 Final</a> Note that some questions have code missing because portions resemble your A3</div>
+                    <div class="table-entry-medium">None</div>
+                </div>
+            </div>
+        </div>
+                    
+        <footer>
+            <div id="footer-container">
+                <div id="footer-element"><p>&copy</p></div>
+                <div id="footer-element"><a href="https://web.cs.toronto.edu/people/faculty-directory" target="_blank">CS Faculty Link</a></div>
+                <div><p>Designed by Lukas and Youngjae</p></div>
+            </div>
+        </footer>
+    </body>
+</html>

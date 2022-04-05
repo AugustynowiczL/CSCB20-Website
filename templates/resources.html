@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Lectures</title>
+    <link rel="stylesheet" href="../static/resources.css">
+</head>
+<body>
+    <header>
+        <div id="nav">
+            <a href="{{ url_for ('index') }}">Home</a>
+            <a href="{{ url_for ('courseteam') }}">Course Team</a>
+            <a href="{{ url_for ('calendar') }}">Calendar</a>
+            <a href="{{ url_for ('news') }}">New News</a>
+            <a href="https://piazza.com" target="_blank">Discussion Board</a>
+            {% if session['type'] == 'Student' %}
+            <a href="{{ url_for ('student_grades') }} ">Grades</a>
+            <a href="{{ url_for ('anonfeedback') }}">Anon Feedback</a>
+            {% endif %}
+            {% if session['type'] == 'Teacher' %}
+            <a href="{{ url_for ('teacher_grades') }} ">Grades</a>
+            <a href="{{ url_for ('teacher_feedback') }} ">Feedback</a>
+            {% endif %}
+            <a href="{{ url_for ('lectures') }}">Lectures</a>
+            <a href="{{ url_for ('labs') }}">Labs</a>
+            <a href="{{ url_for ('assignments') }}">Assignments</a>
+            <a href="{{ url_for ('tests') }}">Tests</a>
+            <a href="{{ url_for ('resources') }}">Resources</a>
+            <a href="{{ url_for ('logout') }} ">Logout</a>
+            </div>
+    </header>
+    <div id="page-title">
+        <h1>Resources</h1>
+    </div>
+    <div>
+        <h2>Online Resources</h2>
+        <hr>
+        <ul>
+            <li><a href="index.html">Course Website</a>
+            <br>
+            <div class = "text">Course information, lecture notes, tutorial material, important announcements, etc. will be posted on the course website. 
+            It is your responsibility to visit it frequently.</div></li>
+            <li>Begineer Tutorial for <a href="http://code.tutsplus.com/tutorials/sql-for-beginners--net-8200">MySQL</a></li>
+            <br>
+            <li>Email communication
+                <br>
+                <div class = "text">Questions regarding the course material, assignments, midterm, etc. should be posed on the bulletin board. Questions about the assignment which you 
+                feel you cannot formulate without revealing your solution (should be very rare!),
+                as well as questions and concerns regarding your personal matters should be directed to the instructor.</div></li>
+            <li><a href="https://piazza.com/">Discussion board</a>
+                <br>
+                <div class = "text">
+                You are encouraged to use the bulletin board to discuss the course material, pose questions on the assignments, etc. 
+                The bulletin board will be monitored by the instructor and by your TAs. Please, be very careful not to reveal (parts of) your solution on the bulletin board.</li>
+                </div>
+        </ul>
+        <div>
+        <h2>Software and Documentation</h2>
+        <hr>
+        <ul>
+            <li>Logging into Mathlab
+                <ol>
+                    <li>Mac OS comes with the application "terminal". Simple click on it to run. Login to mathlab by typing
+                        ssh utorid@mathlab.utsc.utoronto.ca. Enter your password. </li>
+                    <br>
+                    <li>Windows - you will need a SSH client. PuTTY is a good free one. You can download and install here: <a href="http://www.putty.org/">PuTTY</a>. Use the same command as above to login to mathlab:
+                        <br><indent><small><div id="indent">ssh utorid@mathlab.utsc.utoronto.ca.</div></small> </li>
+                </ol>
+            </li>
+        </ul>
+        <hr>
+    </div>
+    </div>
+    <footer>
+        <div id="footer-container">
+            <div id="footer-element"><p>&copy</p></div>
+            <div id="footer-element"><a href="https://web.cs.toronto.edu/people/faculty-directory" target="_blank">CS Faculty Link</a></div>
+            <div><p>Designed by Lukas and Youngjae</p></div>
+        </div>
+    </footer>
+</body>
+</html>

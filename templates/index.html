@@ -1,0 +1,70 @@
+<html>
+    <head> 
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href=" ../static/index.css">
+        <title>Home</title>
+    </head>
+    <body>
+        <header>
+            <div id="nav">
+            <a href="{{ url_for ('index') }}">Home</a>
+            <a href="{{ url_for ('courseteam') }}">Course Team</a>
+            <a href="{{ url_for ('calendar') }}">Calendar</a>
+            <a href="{{ url_for ('news') }}">New News</a>
+            <a href="https://piazza.com" target="_blank">Discussion Board</a>
+            {% if session['type'] == 'Student' %}
+            <a href="{{ url_for ('student_grades') }} ">Grades</a>
+            <a href="{{ url_for ('anonfeedback') }}">Anon Feedback</a>
+            {% endif %}
+            {% if session['type'] == 'Teacher' %}
+            <a href="{{ url_for ('teacher_grades') }} ">Grades</a>
+            <a href="{{ url_for ('teacher_feedback') }} ">Feedback</a>
+            {% endif %}
+            <a href="{{ url_for ('lectures') }}">Lectures</a>
+            <a href="{{ url_for ('labs') }}">Labs</a>
+            <a href="{{ url_for ('assignments') }}">Assignments</a>
+            <a href="{{ url_for ('tests') }}">Tests</a>
+            <a href="{{ url_for ('resources') }}">Resources</a>
+            <a href="{{ url_for ('logout') }} ">Logout</a>
+            </div>
+        </header>
+    <div id="page-title">
+        <h1>Welcome</h1>
+    </div>
+    <div>
+        <h2>Course Description</h2>
+        <hr>
+        <div class="para-indent">
+            <p>A practical introduction to databases and Web app development. Databases: terminology and applications; creating, querying and updating databases; the entity-relationship model for database design. Web documents and applications: static and interactive documents; Web servers and dynamic server-generated content; Web application development and interface with databases.</p>
+            <p><b>Prerequisite: </b> Some experience with programming in an imperative language such as Python, Java or C.</p>
+            <p><b>Exclusion: </b> This course may not be taken after - or concurrently with - any C- or D-level CSC course.</p>
+            <p><b>Syllabus: </b> <a href="/static/blank.pdf" target="_blank">PDF</a>
+        </div>
+        <h2>Instructor</h2>
+        <hr>
+        <div class="profile-container">
+            <div class="profile">
+                <div>
+                    <p><b>Dr. Anna Bretscher</b></p>
+                    <p><b>Email: </b> <a href="bretscher@utsc.utoronto.ca">bretscher@utsc.utoronto.ca</a></p>
+                    <p><b>Office: </b> IC493</p>
+                    <p><b>Phone: </b> (416) 208-4745</p>
+                    <p><b>Lectures: </b> Mondays 9:15-11:00 in HW 216</p>
+                    <p><b>Office Hours: </b> W 11:00-12:00</p>
+                </div>
+                <div>
+                <img id="picture" src="https://images.squarespace-cdn.com/content/v1/5c8e9a223560c34f9070706f/1558634651508-CQ70OES6BVPM74YL77YI/bretscher_a.jpg?format=300w" alt="Anna Bretscher"></img>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div id="footer-container">
+            <div id="footer-element"><p>&copy</p></div>
+            <div id="footer-element"><a href="https://web.cs.toronto.edu/people/faculty-directory" target="_blank">CS Faculty Link</a></div>
+            <div><p>Designed by Lukas and Youngjae</p></div>
+        </div>
+    </footer>
+</body>
+</html>

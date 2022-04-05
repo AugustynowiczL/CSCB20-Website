@@ -1,0 +1,2 @@
+As a student user, the student must be able to see all the recent news
+(if any exist) along with the date after clicking on "news" button/link.
